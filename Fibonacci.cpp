@@ -5,13 +5,23 @@ using namespace std;
 typedef unsigned int uint;
 typedef unsigned long ulong;
 
+uint fibonacci(uint wartosc);
+
+int main(int argc, char** argv)
+{
+	fibonacci(10);
+	cout << endl << "Wcisnij dowolny klawisz...";
+	_getch();
+	return 0;
+}
+
 uint fibonacci(uint wartosc)
 {
 	ulong pierwszy = 0;
 	ulong drugi = 1;
 	ulong kolejny = pierwszy + drugi;
-	
-	for(uint i = 0; i <= wartosc; i++)
+
+	for (uint i = 0; i <= wartosc; i++)
 	{
 		if (i == 0)
 		{
@@ -31,14 +41,5 @@ uint fibonacci(uint wartosc)
 			cout << "Wyraz nr " << i << " wynosi " << kolejny << endl;
 		}
 	}
-
 	return kolejny;
-}
-
-int main(int argc, char** argv)
-{
-	fibonacci(10);
-	cout << endl << "Wcisnij dowolny klawisz...";
-	_getch();
-	return 0;
 }
