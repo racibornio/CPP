@@ -1,7 +1,7 @@
 // project_1.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
+//#include "stdafx.h"
 #include <iostream>
 #include <iomanip>
 #include <conio.h>
@@ -15,7 +15,8 @@ int drugieZadanie();
 int trzecieZadanie();
 int czwarteZadanie();
 
-int _tmain(int argc, _TCHAR* argv[])
+//int _tmain(int argc, _TCHAR* argv[])
+int main(int argc, char** argv)
 {
 	float a, b, pole;
 	cout << "Witaj w programie obliczajacym pole prostokata!" << endl;
@@ -34,7 +35,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	czwarteZadanie();
 
 	char wybor;
-	cout << "Czy chcesz wyswietlic drugie zadanie?" << endl;
+	cout << "Czy chcesz wyswietlic drugie zadanie? (\"y\" lub \"Y\")" << endl;
 	cin >> wybor;
 
 	if (wybor == 'y' || wybor == 'Y')
@@ -42,7 +43,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		drugieZadanie();
 	}
 
-	cout << "WCISNIJ DOWOLNY KLAWISZ...";
+	cout << endl << "WCISNIJ DOWOLNY KLAWISZ...";
 	_getch();
 	return 0;
 }
@@ -59,7 +60,6 @@ int drugieZadanie()
 	scanf_s("%ld", &b);
 	pole = a*b;
 	printf("\nPole prostokata o boku A = %ld i boku B = %ld wynosi %10.2E", a, b, pole);
-	cout << "WCISNIJ DOWOLNY KLAWISZ...";
 	return 0;
 }
 

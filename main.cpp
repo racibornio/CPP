@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <math.h>
+#include <conio.h>
 
 using namespace std;
 
@@ -66,6 +67,9 @@ int main(int argc, char** argv) {
 			cout << "i=" << i << ", j=" << j << " to " << macierz[i][j] << endl;
 		}
 	}
+
+	cout << endl << "Wcisnij dowolny klawisz...";
+	_getch();
 
 	return EXIT_SUCCESS;
 }
