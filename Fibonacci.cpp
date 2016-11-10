@@ -15,11 +15,16 @@ uint fibonacci(uint wartosc)
 	{
 		if (i == 0)
 		{
+			kolejny = 0;
+			cout << "Wyraz nr " << i << " wynosi " << kolejny << endl;
+		}
+		else if (i == 1)
+		{
 			kolejny = 1;
 			cout << "Wyraz nr " << i << " wynosi " << kolejny << endl;
 		}
-		else {
-
+		else
+		{
 			pierwszy = drugi;
 			drugi = kolejny;
 			kolejny = pierwszy + drugi;
