@@ -30,7 +30,7 @@ int main()
 	}
 	else
 	{
-		std::cout << "Delta jest ujemna a wiec nie ma miejsc zerowych." << std::endl;
+		std::cout << "Delta jest ujemna wiec funkcja nie ma miejsc zerowych w ciele liczb rzeczywistych." << std::endl;
 	}
 
 	std::cout << "Wcisnij dowolny klawisz aby zamknac okno..." << std::endl;
@@ -62,7 +62,7 @@ void przyjmijWspolczynniki()
 double wyliczDelte(double a, double b, double c)
 {
 	double delta = b * b - 4 * a * c;
-	std::cout << "Delta wynosi " << delta << " a pierwiastek " << sqrt(delta) << std::endl;
+	std::cout << "Delta wynosi " << delta << " a jej pierwiastek " << sqrt(delta) << std::endl;
 	return delta;
 }
 
