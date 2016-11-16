@@ -2,32 +2,30 @@
 #include <conio.h>
 #include <math.h>
 
-int wyliczDelte(int a, int b, int c);
-int wyliczPierwszeMiejsceZerowe(int wynikDelty, int a, int b);
-int wyliczDrugieMiejsceZerowe(int wynikDelty, int a, int b);
-void wyliczWspolrzedneWierzcholka(int wynikDelty, int a, int b);
-int a, b, c;
+void przyjmijWspolczynniki();
+double wyliczDelte(double a, double b, double c);
+double wyliczPierwszeMiejsceZerowe(double wynikDelty, double a, double b);
+double wyliczDrugieMiejsceZerowe(double wynikDelty, double a, double b);
+void wyliczWspolrzedneWierzcholka(double wynikDelty, double a, double b);
+double a, b, c;
 
 int main()
 {
-	a = -3, b = 4, c = 5;
+	przyjmijWspolczynniki();
 
-	int wynikDelty = wyliczDelte(a, b, c);
+	double wynikDelty = wyliczDelte(a, b, c);
 
-	std::cout << "Delta wynosi " << wynikDelty << std::endl;
 	if (wynikDelty > 0)
 	{
-		std::cout << "Mamy dwa miejsca zerowe" << std::endl;
-		int pierwszeMiejsce = wyliczPierwszeMiejsceZerowe(wynikDelty, a, b);
-		int drugieMiejsce = wyliczDrugieMiejsceZerowe(wynikDelty, a, b);
-		std::cout << "Miejsca zerowe to " << pierwszeMiejsce << " i " << drugieMiejsce << std::endl;
+		double pierwszeMiejsce = wyliczPierwszeMiejsceZerowe(wynikDelty, a, b);
+		double drugieMiejsce = wyliczDrugieMiejsceZerowe(wynikDelty, a, b);
+		std::cout << "Mamy dwa miejsca zerowe: " << pierwszeMiejsce << " i " << drugieMiejsce << std::endl;
 		wyliczWspolrzedneWierzcholka(wynikDelty, a, b);
 	}
 	else if (wynikDelty == 0)
 	{
-		std::cout << "Mamy jedno miejsce zerowe" << std::endl;
-		int pierwszeMiejsce = wyliczPierwszeMiejsceZerowe(wynikDelty, a, b);
-		std::cout << "Miejsce zerowe to " << pierwszeMiejsce << std::endl;
+		double pierwszeMiejsce = wyliczPierwszeMiejsceZerowe(wynikDelty, a, b);
+		std::cout << "Mamy jedno miejsce zerowe: " << pierwszeMiejsce << std::endl;
 		wyliczWspolrzedneWierzcholka(wynikDelty, a, b);
 	}
 	else
@@ -35,33 +33,56 @@ int main()
 		std::cout << "Delta jest ujemna a wiec nie ma miejsc zerowych." << std::endl;
 	}
 
+	std::cout << "Wcisnij dowolny klawisz aby zamknac okno..." << std::endl;
 	_getch();
     return 0;
 }
 
-int wyliczDelte(int a, int b, int c)
+void przyjmijWspolczynniki()
 {
-	int delta = b * b - 4 * a * c;
+	while (a == 0)
+	{
+		std::cout << "Podaj wartosc wspolczynnika A..." << std::endl;
+		std::cin >> a;
+	}
+
+	while (b == 0)
+	{
+		std::cout << "Podaj wartosc wspolczynnika B..." << std::endl;
+		std::cin >> b;
+	}
+
+	while (c == 0)
+	{
+		std::cout << "Podaj wartosc wspolczynnika C..." << std::endl;
+		std::cin >> c;
+	}
+}
+
+double wyliczDelte(double a, double b, double c)
+{
+	double delta = b * b - 4 * a * c;
+	std::cout << "Delta wynosi " << delta << " a pierwiastek " << sqrt(delta) << std::endl;
 	return delta;
 }
 
-int wyliczPierwszeMiejsceZerowe(int wynikDelty, int a, int b)
+double wyliczPierwszeMiejsceZerowe(double wynikDelty, double a, double b)
 {
-    int pierwszeMiejsceZerowe = ((-b - sqrt(wynikDelty)) / 2 * a);
+    double pierwszeMiejsceZerowe = ((-b - sqrt(wynikDelty)) / (2 * a));
     return pierwszeMiejsceZerowe;
 }
 
 
-int wyliczDrugieMiejsceZerowe(int wynikDelty, int a, int b)
+double wyliczDrugieMiejsceZerowe(double wynikDelty, double a, double b)
 {
-	int drugieMiejsceZerowe = ((-b + sqrt(wynikDelty)) / 2 * a);
+	double drugieMiejsceZerowe = ((-b + sqrt(wynikDelty)) / (2 * a));
 	return drugieMiejsceZerowe;
-};
+}
 
-void wyliczWspolrzedneWierzcholka(int wynikDelty, int a, int b)
+void wyliczWspolrzedneWierzcholka(double wynikDelty, double a, double b)
 {
-	int wspolrzednaX, wspolrzednaY;
+	double wspolrzednaX, wspolrzednaY;
 	wspolrzednaX = (- b) / (2 * a);
 	wspolrzednaY = (- wynikDelty) / (4 * a);
 	std::cout << "Wspolrzedne wierzcholka paraboli: X = " << wspolrzednaX << ", Y = " << wspolrzednaY << std::endl;
-};
+}
