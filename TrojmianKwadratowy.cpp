@@ -1,6 +1,6 @@
 #include <iostream>
 #include <conio.h>
-#include <math.h>
+#include <cmath>
 
 void przyjmijWspolczynniki();
 double wyliczDelte(double a, double b, double c);
@@ -62,7 +62,7 @@ void przyjmijWspolczynniki()
 double wyliczDelte(double a, double b, double c)
 {
 	double delta = b * b - 4 * a * c;
-	std::cout << "Delta wynosi " << delta << " a jej pierwiastek " << sqrt(delta) << std::endl;
+	std::cout << "Delta wynosi " << delta << std::endl;
 	return delta;
 }
 
