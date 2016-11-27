@@ -4,12 +4,14 @@
 double a, b, c;
 void pobierzDlugosciBokow();
 bool sprawdzCzyProstokatny();
+double wybierzNajwieksza();
 
 int main()
 {
     pobierzDlugosciBokow();
     std::cout << "a=" << a << ", b=" << b << ", c=" << c << std::endl;
     sprawdzCzyProstokatny();
+    std::cout << "Najwieksza liczba to " << wybierzNajwieksza() << std::endl;
     return 0;
 }
 
@@ -34,6 +36,9 @@ void pobierzDlugosciBokow()
         cout << "Podaj dlugosc boku C: ";
         cin >> c;
     }
+
+    
+
 }
 
 bool sprawdzCzyProstokatny()
@@ -61,4 +66,23 @@ bool sprawdzCzyProstokatny()
         return false;
     }
 
+}
+
+double wybierzNajwieksza()
+{
+    using namespace std;
+    double najwieksza;
+
+    if (a > b && a > c)
+    {
+        return a;
+    }
+    else if (b > a && b > c)
+    {
+        return b;
+    }
+    else
+    {
+        return c;
+    }   
 }
