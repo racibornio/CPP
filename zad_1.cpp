@@ -1,13 +1,9 @@
-// project_1.cpp : Defines the entry point for the console application.
-//
-
-//#include "stdafx.h"
+#define _USE_MATH_DEFINES
 #include <iostream>
 #include <iomanip>
 #include <conio.h>
 #include <stdio.h>
-#define _USE_MATH_DEFINES
-#include <math.h>
+#include <cmath>
 
 using namespace std;
 
@@ -51,7 +47,7 @@ int main(int argc, char** argv)
 int drugieZadanie()
 {
 	cout << "Drugie zadanie" << endl;
-	int a, b;
+	float a, b;
 	float pole;
 	printf("Witaj w drugim wariancie programu obliczajacego pole prostokata!");
 	printf("\nPodaj dlugosc boku A: ");
@@ -66,8 +62,7 @@ int drugieZadanie()
 int trzecieZadanie()
 {
 	cout << "Witaj w zadaniu trzecim!" << endl;
-	float pi = 3.14;
-	cout << "Oto wartosc liczby PI: " << pi << " a jej pierwiastek kwadratowy to: " << sqrt(pi) << endl << endl;
+	cout << "Pierwiastek kwadratowy liczby PI to: " << sqrt(M_PI) << endl << endl;
 	return 0;
 }
 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <conio.h>
 
 double a, b, c;
 void pobierzDlugosciBokow();
@@ -12,6 +13,9 @@ int main()
     std::cout << "a=" << a << ", b=" << b << ", c=" << c << std::endl;
     sprawdzCzyProstokatny();
     std::cout << "Najwieksza liczba to " << wybierzNajwieksza() << std::endl;
+
+	std::cout << std::endl << "WCISNIJ DOWOLNY KLAWISZ...";
+	_getch();
     return 0;
 }
 
@@ -71,7 +75,6 @@ bool sprawdzCzyProstokatny()
 double wybierzNajwieksza()
 {
     using namespace std;
-    double najwieksza;
 
     if (a > b && a > c)
     {
