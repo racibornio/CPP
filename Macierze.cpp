@@ -4,6 +4,7 @@
 
 void mnozenie2na1();
 void mnozenie4na1();
+void mnozenie2na2();
 
 struct MatrixData
 {
@@ -22,24 +23,7 @@ int main()
 {
 	mnozenie2na1();
 	mnozenie4na1();
-
-	int m1[2][2] = { {2, 3}, {1, 4} };
-	int m2[2][2] = { {3, 4}, {2, 0} };
-	int mR[2][2];
-	mR[0][0] = m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0];
-	mR[0][1] = m1[0][0] * m2[0][1] + m1[0][1] * m2[1][1];
-	mR[1][0] = m1[1][0] * m2[0][0] + m1[1][1] * m2[1][0];
-	mR[1][1] = m1[1][0] * m2[0][1] + m1[1][1] * m2[1][1];
-
-	std::cout << "Macierz wynikowa: " << std::endl;
-	for (int i=0; i<2; i++)
-	{
-		for (int j = 0; j < 2; j++)
-		{
-			std::cout << mR[i][j];
-		}
-		std::cout << std::endl;
-	}
+	mnozenie2na2();
 /*
 	std::cout << "How many elements put to the matrix..." << std::endl;
 	int matrixSize;
@@ -115,6 +99,37 @@ void mnozenie4na1()
 
 }
 
+void mnozenie2na2()
+{
+	int m1[2][2] = { { 2, 3 },{ 1, 4 } };
+	int m2[2][2] = { { 3, 4 },{ 2, 0 } };
+	int mR[2][2];
+	mR[0][0] = m1[0][0] * m2[0][0] + m1[0][1] * m2[1][0];
+	mR[0][1] = m1[0][0] * m2[0][1] + m1[0][1] * m2[1][1];
+	mR[1][0] = m1[1][0] * m2[0][0] + m1[1][1] * m2[1][0];
+	mR[1][1] = m1[1][0] * m2[0][1] + m1[1][1] * m2[1][1];
+
+	std::cout << "Mnozenie macierzy:" << std::endl;
+	std::cout << "[" << m1[0][0] << " " << m1[0][1] << "]" << std::endl;
+	std::cout << "[" << m1[1][0] << " " << m1[1][1] << "]" << std::endl;
+	std::cout << "przez macierz:" << std::endl;
+	std::cout << "[" << m2[0][0] << " " << m2[0][1] << "]" << std::endl;
+	std::cout << "[" << m2[1][0] << " " << m2[1][1] << "]" << std::endl;
+	std::cout << "daje macierz wynikowa: " << std::endl;
+
+	for (int i = 0; i<2; i++)
+	{
+		std::cout << "[" ;
+		for (int j = 0; j < 2; j++)
+		{
+			std::cout << mR[i] << " " << mR[j];
+		}
+		std::cout << "]" << std::endl;
+	}
+
+	std::cout << std::endl;
+}
+
 int * createMatrix(int size)
 {
 	int * matrix = new int[size];
@@ -146,8 +161,8 @@ MatrixData createMatrix()
 	{
 		for (int kolumny = 0; kolumny < k; kolumny++)
 		{
-			int rawoffset = wiersze * k;
-			int matrixIndex = rawoffset + kolumny;
+			int rowoffset = wiersze * k;
+			int matrixIndex = rowoffset + kolumny;
 			cout << &matrix[matrixIndex] << getSeparator(k, kolumny);
 		}
 		cout << endl;
@@ -160,9 +175,8 @@ MatrixData createMatrix()
 			cout << "Podaj wartosc dla W[" << wiersze << "]:K[" << kolumny << "] ... ";
 			int komorka;
 			cin >> komorka;
-			int rawoffset = wiersze * k;
-			matrix[rawoffset + kolumny] = komorka;
-			//matrix[wiersze][kolumny] = komorka;
+			int rowoffset = wiersze * k;
+			matrix[rowoffset + kolumny] = komorka;
 			cout << "Komorka wynosi " << komorka << endl;
 		}
 	}
