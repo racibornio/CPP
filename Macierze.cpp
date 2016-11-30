@@ -122,7 +122,7 @@ void mnozenie2na2()
 		std::cout << "[" ;
 		for (int j = 0; j < 2; j++)
 		{
-			std::cout << mR[i] << " " << mR[j];
+			std::cout << mR[i][j] << ((j < (2 - 1)) ? " " : "");
 		}
 		std::cout << "]" << std::endl;
 	}
