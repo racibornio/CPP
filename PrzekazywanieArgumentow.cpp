@@ -31,16 +31,16 @@ void wypisz(int iLiczba)
 	std::cout << "Z funkcji :: Wartosc liczby wynosi " << iLiczba << std::endl;
 }
 
-void wypiszZReferencji(int & iLiczba)
+void wypiszZReferencji(int &iLiczba)
 {
 	std::cout << "Wartosc liczby podanej do referencji to " << iLiczba << " a jej adres to " << &iLiczba << std::endl;
 	iLiczba += 10;
 	std::cout << "Wartosc liczby podanej do referencji po zwiekszeniu to " << iLiczba << " a jej adres to " << &iLiczba << std::endl;
 }
 
-void wypiszPrzezWskaznik(int * iLiczba)
+void wypiszPrzezWskaznik(int *iLiczba)
 {
 	std::cout << "Przekazanie przez wskaznik :: iLiczba = " << iLiczba << " a *iLiczba = " << *iLiczba << std::endl;
-	iLiczba += 10;
+	*iLiczba += 10;
 	std::cout << "Przekazanie przez wskaznik po zwiekszeniu :: iLiczba = " << iLiczba << " a *iLiczba = " << *iLiczba << std::endl;
 }
