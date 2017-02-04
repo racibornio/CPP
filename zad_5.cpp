@@ -13,25 +13,23 @@ int main()
 
 void creatingSortingAndSearchingMinAndMax()
 {
-	
-	int tablicaStu[10];
+	int firstTableSize = 100;
+	int tablicaStu[firstTableSize];
 	int maxValue = 0;
 
-	for (int i=0; i<10; i++)
+	for (int i=0; i < firstTableSize; i++)
 	{
-		tablicaStu[i] = rand();
+		tablicaStu[i] = rand() * i;
 		std::cout << i << " jest " << tablicaStu[i] << std::endl;
 		if (tablicaStu[i] > maxValue)
 		{
 			maxValue = tablicaStu[i];
-		}
-		
-		
+		}		
 	}
 
 	int minValue = tablicaStu[0];
 	
-	for (int i=0; i<10; i++)
+	for (int i=0; i < firstTableSize; i++)
 	{
 		if (tablicaStu[i] < minValue)
 		{
@@ -39,13 +37,13 @@ void creatingSortingAndSearchingMinAndMax()
 		}
 	}
 
-	std::sort(tablicaStu, tablicaStu + 9);
+	std::sort(tablicaStu, tablicaStu + 100);
 	std::cout << "Sorted array looks like this: " << std::endl;
-	for (int i=0; i<10; i++)
+	for (int i=0; i < firstTableSize; i++)
 	{
-		std::cout << tablicaStu[i] << std::endl;
+		std::cout << i+1  << " = " << tablicaStu[i] << std::endl;
 	}
 
-	std::cout << "Wartosc max wyszla " << maxValue << std::endl;
 	std::cout << "Wartosc min wyszla " << minValue << std::endl;
+	std::cout << "Wartosc max wyszla " << maxValue << std::endl;
 }
