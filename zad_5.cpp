@@ -3,24 +3,25 @@
 #include <cstdlib>
 #include <algorithm>
 
-void creatingSortingAndSearchingMinAndMax();
+void zadNoOne_creatingSortingAndSearchingMinAndMax();
 
 int main()
 {
-	creatingSortingAndSearchingMinAndMax();
+	zadNoOne_creatingSortingAndSearchingMinAndMax();
 	return 0;
 }
 
-void creatingSortingAndSearchingMinAndMax()
+void zadNoOne_creatingSortingAndSearchingMinAndMax()
 {
 	int firstTableSize = 100;
 	int tablicaStu[firstTableSize];
 	int maxValue = 0;
 
+	//create table and find max value
 	for (int i=0; i < firstTableSize; i++)
 	{
-		tablicaStu[i] = rand() * i;
-		std::cout << i << " jest " << tablicaStu[i] << std::endl;
+		tablicaStu[i] = rand();
+		std::cout << i << " place has value " << tablicaStu[i] << std::endl;
 		if (tablicaStu[i] > maxValue)
 		{
 			maxValue = tablicaStu[i];
@@ -29,6 +30,7 @@ void creatingSortingAndSearchingMinAndMax()
 
 	int minValue = tablicaStu[0];
 	
+	//find minimum
 	for (int i=0; i < firstTableSize; i++)
 	{
 		if (tablicaStu[i] < minValue)
@@ -37,6 +39,7 @@ void creatingSortingAndSearchingMinAndMax()
 		}
 	}
 
+	//sort table
 	std::sort(tablicaStu, tablicaStu + 100);
 	std::cout << "Sorted array looks like this: " << std::endl;
 	for (int i=0; i < firstTableSize; i++)
@@ -46,4 +49,5 @@ void creatingSortingAndSearchingMinAndMax()
 
 	std::cout << "Wartosc min wyszla " << minValue << std::endl;
 	std::cout << "Wartosc max wyszla " << maxValue << std::endl;
+
 }
