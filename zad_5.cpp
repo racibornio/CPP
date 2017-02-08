@@ -2,66 +2,33 @@
 #include <math.h>
 #include <cstdlib>
 #include <algorithm>
+#include <conio.h>
 
-void zadNoOne_creatingSortingAndSearchingMinAndMax();
 void fulfillTable(int table[]);
 void scanTable(int * table);
-void findMinimun(int table[]);
+void findMinimum(int table[]);
+void findMaximum(int table[]);
+void clearTable(int table[]);
+void sortTable(int table[]);
 
 int main()
 {
 	int table[100];
-	
-	//zadNoOne_creatingSortingAndSearchingMinAndMax();
-	
+		
 	//first part - fulfill the table with random values and display it
 	fulfillTable(table);
-	//second part - find min value;
-	findMinimun(table);
-	
+	//second part - find min value
+	findMinimum(table);
+	//third part - find max value
+	findMaximum(table);
+	//fourth part - sort the content
+	sortTable(table);
+	//last part - clear the table
+	clearTable(table);
+
+	_getch();
 	return 0;
 }
-
-void zadNoOne_creatingSortingAndSearchingMinAndMax()
-{
-	int firstTableSize = 100;
-	int tablicaStu[firstTableSize];
-	int maxValue = 0;
-
-	//create table and find max value
-	for (int i=0; i < firstTableSize; i++)
-	{
-		tablicaStu[i] = rand();
-		std::cout << i << " place has value " << tablicaStu[i] << std::endl;
-		if (tablicaStu[i] > maxValue)
-		{
-			maxValue = tablicaStu[i];
-		}		
-	}
-
-	int minValue = tablicaStu[0];
-	
-	//find minimum
-	for (int i=0; i < firstTableSize; i++)
-	{
-		if (tablicaStu[i] < minValue)
-		{
-			minValue = tablicaStu[i];
-		}
-	}
-
-	//sort table
-	std::sort(tablicaStu, tablicaStu + 100);
-	std::cout << "Sorted array looks like this: " << std::endl;
-	for (int i=0; i < firstTableSize; i++)
-	{
-		std::cout << i+1  << " = " << tablicaStu[i] << std::endl;
-	}
-
-	std::cout << "Wartosc min wyszla " << minValue << std::endl;
-	std::cout << "Wartosc max wyszla " << maxValue << std::endl;
-}
-
 
 void fulfillTable(int table[])
 {
@@ -72,8 +39,7 @@ void fulfillTable(int table[])
 	}
 }
 
-
-void findMinimun(int table[])
+void findMinimum(int table[])
 {
 	int minValue = table[0];
 	for (int i=0; i < 100; i++)
@@ -84,7 +50,37 @@ void findMinimun(int table[])
 		}
 	}
 	std::cout << "The minimum is " << minValue << std::endl;
-	
+}
+
+void findMaximum(int table[])
+{
+	int maxValue = 0;
+	for (int i = 0; i < 100; i++)
+	{
+		if (table[i] > maxValue)
+		{
+			maxValue = table[i];
+		}
+	}
+	std::cout << "The maximum is " << maxValue << std::endl;
+}
+
+void clearTable(int table[])
+{
+	for (int i = 0; i < 100; i++)
+	{
+		table[i] = 0;
+	}
+}
+
+void sortTable(int table[])
+{
+	std::sort(table, table + 100);
+	std::cout << "Sorted array looks like this: " << std::endl;
+	for (int i = 0; i < 100; i++)
+	{
+		std::cout << i + 1 << " = " << table[i] << std::endl;
+	}
 }
 
 void scanTable(int * table)
