@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <algorithm>
 #include <conio.h>
+#include <ctime>
 
 void fulfillTable(int table[]);
 void scanTable(int * table);
@@ -10,6 +11,7 @@ void findMinimum(int table[]);
 void findMaximum(int table[]);
 void clearTable(int table[]);
 void sortTable(int table[]);
+void findCertainElement(int table[]);
 
 int main()
 {
@@ -23,6 +25,8 @@ int main()
 	findMaximum(table);
 	//fourth part - sort the content
 	sortTable(table);
+	//fifth part - check if certain number exists and return its index if so
+	findCertainElement(table);
 	//last part - clear the table
 	clearTable(table);
 
@@ -34,7 +38,7 @@ void fulfillTable(int table[])
 {
 	for (int i = 0; i < 100; i++)
 	{
-		table[i] = rand();
+		table[i] = rand() % 200 + 1;
 		std::cout << i << " place has value " << table[i] << std::endl;
 	}
 }
@@ -80,6 +84,26 @@ void sortTable(int table[])
 	for (int i = 0; i < 100; i++)
 	{
 		std::cout << i + 1 << " = " << table[i] << std::endl;
+	}
+}
+
+void findCertainElement(int table[])
+{
+	int sampleNumber = rand() % 200 + 1;
+	int indexOfCertainElement = NULL;
+	for (int i = 0; i < 100; i++)
+	{
+		if (table[i] == sampleNumber)
+		{
+			indexOfCertainElement = i;
+			std::cout << "Random value " << sampleNumber << " exists in the table and its index is " << i << std::endl;
+			break;
+		}
+		else
+		{
+			std::cout << "Unfortunatelly random value " << sampleNumber << " has not been found in the table." << std::endl;
+			break;
+		}
 	}
 }
 
