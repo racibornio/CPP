@@ -16,7 +16,7 @@ void findCertainElement(int table[]);
 int main()
 {
 	int table[100];
-		
+
 	//first part - fulfill the table with random values and display it
 	fulfillTable(table);
 	//second part - find min value
@@ -36,6 +36,7 @@ int main()
 
 void fulfillTable(int table[])
 {
+	srand(time(NULL));
 	for (int i = 0; i < 100; i++)
 	{
 		table[i] = rand() % 200 + 1;
@@ -46,7 +47,7 @@ void fulfillTable(int table[])
 void findMinimum(int table[])
 {
 	int minValue = table[0];
-	for (int i=0; i < 100; i++)
+	for (int i = 0; i < 100; i++)
 	{
 		if (table[i] < minValue)
 		{
@@ -109,5 +110,5 @@ void findCertainElement(int table[])
 
 void scanTable(int * table)
 {
-	
+
 }
