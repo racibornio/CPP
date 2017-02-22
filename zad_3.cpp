@@ -89,12 +89,12 @@ void tabliczkaMnozeniaDoStuDlaWhile()
 		while (j <= 10)
 		{
 			std::cout << i << "x" << j << "=" << i*j << " ";
-			j++;
-
+			
 			if (j == 10)
 			{
 				std::cout << std::endl;
 			}
+			j++;
 		}
 
 		j = 1;
