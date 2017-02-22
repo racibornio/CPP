@@ -7,6 +7,7 @@ void wyliczFunkcjeUzywajacWhile();
 void wyliczFunkcjeUzywajacDoWhile();
 void tabliczkaMnozeniaDoStuDlaFor();
 void tabliczkaMnozeniaDoStuDlaWhile();
+void tabliczkaMnozeniaDoStuDlaDoWhile();
 
 int x = 0;
 int y;
@@ -18,6 +19,7 @@ int main()
 	wyliczFunkcjeUzywajacDoWhile();
 	tabliczkaMnozeniaDoStuDlaFor();
 	tabliczkaMnozeniaDoStuDlaWhile();
+	tabliczkaMnozeniaDoStuDlaDoWhile();
 
 	std::cout << "WCISNIJ DOWOLNY KLAWISZ...";
 	_getch();
@@ -89,15 +91,31 @@ void tabliczkaMnozeniaDoStuDlaWhile()
 		while (j <= 10)
 		{
 			std::cout << i << "x" << j << "=" << i*j << " ";
-			
 			if (j == 10)
 			{
 				std::cout << std::endl;
 			}
 			j++;
 		}
-
 		j = 1;
 		i++;
 	}
+	std::cout << std::endl;
+}
+
+void tabliczkaMnozeniaDoStuDlaDoWhile()
+{
+	int i = 1, j = 1;
+	do
+	{
+		do
+		{
+			std::cout << i << "x" << j << "=" << i*j << " ";
+			j++;
+		} while (j <= 10);
+		std::cout << std::endl;
+		j = 1;
+		i++;
+	} while (i <= 10);
+	std::cout << std::endl;
 }
