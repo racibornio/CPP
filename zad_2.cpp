@@ -71,19 +71,19 @@ void pobierzDlugosciBokow()
 {
     using namespace std;
 
-    while(aa==0)
+    while(aa <= 0)
     {
         cout << "Podaj dlugosc boku A: ";
         cin >> aa;
     }
 
-    while(bb==0)
+    while(bb <= 0)
     {
         cout << "Podaj dlugosc boku B: ";
         cin >> bb;
     }
 
-    while(cc==0)
+    while(cc <= 0)
     {
         cout << "Podaj dlugosc boku C: ";
         cin >> cc;

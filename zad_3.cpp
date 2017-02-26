@@ -10,7 +10,7 @@ void tabliczkaMnozeniaDoStuDlaWhile();
 void tabliczkaMnozeniaDoStuDlaDoWhile();
 
 int x = 0;
-int y;
+int y = 0;
 
 int main()
 {

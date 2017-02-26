@@ -11,7 +11,6 @@ int drugieZadanie();
 int trzecieZadanie();
 int czwarteZadanie();
 
-//int _tmain(int argc, _TCHAR* argv[])
 int main(int argc, char** argv)
 {
 	float a, b, pole;
@@ -75,6 +74,7 @@ int czwarteZadanie()
 	cout << "Podaj wartosc dla Y: ";
 	cin >> y;
 	float suma = x + y, roznica = y - x, iloczyn = x * y, iloraz = y / x;
+	cout << setprecision(2);
 	cout << "Suma " << x << " i " << y << " wynosi " << suma << endl;
 	cout << "Roznica " << x << " i " << y << " wynosi " << roznica << endl;
 	cout << "Iloczyn " << x << " i " << y << " wynosi " << iloczyn << endl;
