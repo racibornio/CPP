@@ -65,10 +65,20 @@ void sortArrayByInsertionSorting()
 
 	for (int i = 0; i < elementsSum - 1; i++)
 	{
-		int minimum = tab[i];
-		if (tab[i] > tab[i+1])
+		temp = tab[i];
+		for (int j = elementsSum; j > 0; j--)
 		{
-
+			if (tab[i] > tab[i + 1])
+			{
+				tab[i] = tab[i + 1];
+				tab[i + 1] = temp;
+			}
 		}
+	}
+
+
+	for (int i = 0; i < elementsSum; i++)
+	{
+		std::cout << "Sorted array - " << i << " = " << tab[i] << std::endl;
 	}
 }
