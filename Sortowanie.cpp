@@ -7,7 +7,7 @@ void sortArrayByInsertionSorting();
 
 int main()
 {
-	//sortArrayByGnomeSorting();
+	sortArrayByGnomeSorting();
 	sortArrayByInsertionSorting();
 
 	_getch();
@@ -54,8 +54,8 @@ void sortArrayByGnomeSorting()
 
 void sortArrayByInsertionSorting()
 {
-	constexpr int elementsSum = 3;
-	int tab[elementsSum] = {3, 2, 1};
+	constexpr int elementsSum = 14;
+	int tab[elementsSum] = {5342, 426554, 54, 5213, 6, 4, 2, 65, 652, 53, 2222, 14, 594302, 54830};
 	int temp = 0;
 
 	for (int i = 0; i < elementsSum; i++)
@@ -63,15 +63,15 @@ void sortArrayByInsertionSorting()
 		std::cout << "Given array - " << i << " = " << tab[i] << std::endl;
 	}
 
-	for (int i = 0; i < elementsSum - 1; i++)
+	for (int iterator = 0; iterator < elementsSum - 1; iterator++)
 	{
-		temp = tab[i];
-		for (int j = elementsSum; j > 0; j--)
+		for (int restIterator = iterator + 1; restIterator < elementsSum; restIterator++)
 		{
-			if (tab[i] > tab[i + 1])
+			if (tab[iterator] > tab[restIterator])
 			{
-				tab[i] = tab[i + 1];
-				tab[i + 1] = temp;
+				temp = tab[iterator];
+				tab[iterator] = tab[restIterator];
+				tab[restIterator] = temp;
 			}
 		}
 	}
