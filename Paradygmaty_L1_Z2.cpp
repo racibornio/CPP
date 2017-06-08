@@ -41,28 +41,28 @@ int main()
 
 Sorting::Sorting()
 {
+	srand(time(NULL));
 	generateNumbers();
 	sortNumbers();
 }
 
 Sorting::~Sorting()
 {
-	for (int i = 0; i < elementsSum; i++)
+	/*for (int i = 0; i < elementsSum; i++)
 	{
 		tab[i] = NULL;
-	}
+	}*/
 	std::cout << "The object has been removed and the memory released." << std::endl;
 }
 
 void Sorting::generateNumbers()
 {
-	std::cout << "Please wait...generating random numbers is taking place..." << std::endl;
+	//std::cout << "Please wait...generating random numbers is taking place..." << std::endl;
 	for (int i = 0; i < elementsSum; i++)
 	{
-		srand(time(NULL));
 		tab[i] = rand()%100+i;
-		Sleep(1991);
-		std::cout << elementsSum - i << std::endl;
+		//Sleep(1341);
+		//std::cout << elementsSum - i << std::endl;
 	}
 
 	displayGeneratedNumbers();
