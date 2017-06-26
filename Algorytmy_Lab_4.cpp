@@ -34,7 +34,7 @@ void GetAgeTableOrdered()
 	}
 	std::cout << "Minimum value: " << Minimum << ", index : " << Minimum_index << std::endl;
 	Next[0] = Minimum_index;
-	// -> gdzieœ st¹d for
+	// -> gdzieÅ“ stÂ¹d for
 	int AlfaInterval = Age[1] - Minimum;
 	int BetaInterval = 0;
 	int NextValue = 0;
