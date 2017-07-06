@@ -6,10 +6,12 @@ typedef unsigned int uint;
 typedef unsigned long ulong;
 
 uint fibonacci(uint wartosc);
+void WyliczSilnieIteracyjnie(uint limit);
 
 int main(int argc, char** argv)
 {
-	fibonacci(10);
+	//fibonacci(10);
+	WyliczSilnieIteracyjnie(12);
 	cout << endl << "Wcisnij dowolny klawisz...";
 	_getch();
 	return 0;
@@ -42,4 +44,26 @@ uint fibonacci(uint wartosc)
 		}
 	}
 	return kolejny;
+}
+
+void WyliczSilnieIteracyjnie(uint limit)
+{
+	int result = 0;
+	if (limit == 1)
+	{
+		result = 1;
+	}
+	else
+	{
+		int i = 1;
+		int odlicznik = 2;
+		int iloczyn_posredni = i * odlicznik;
+		while (odlicznik < limit)
+		{
+			odlicznik++;
+			iloczyn_posredni *= odlicznik;
+		};
+		result = iloczyn_posredni;
+		cout << result;
+	}
 }
