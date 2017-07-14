@@ -1,76 +1,107 @@
-#include <conio.h>
 #include <iostream>
-#include "stdafx.h"
+#include <conio.h>
 
-void GetAgeTableOrdered();
+const int INDEX_DEF_VAL = -1;
+const int ARRAY_SIZE = 9;
 
-int _tmain(int argc, _TCHAR* argv[])
-{
-	GetAgeTableOrdered(); 
+//void printArray(int &arrayPtr, int size);
+bool exists(int *indexes, int size, int index);
+void add(int *indexes, int size, int index);
+void printArray(int *arrayPtr, int size);
+void min(int *array, int array_size, int *indexes, int indexes_size, int *out);
+void sort(int *array, int array_size, int *indexes, int indexes_size);
 
+int main() {
+	int original[] = { 100, 4, 2, 56, 98, 34, 67, 84, 30 };
+	int indexes[] = { -1, -1, -1, -1, -1, -1, -1, -1, -1 };
+
+	printArray(original, ARRAY_SIZE);
+	sort(original, ARRAY_SIZE, indexes, ARRAY_SIZE);
+	printArray(indexes, ARRAY_SIZE);
+	
 	_getch();
 	return 0;
 }
 
-void GetAgeTableOrdered()
-{
-	int Age[9] = {100, 4, 11, 2, 9, 15, 41, 8, 31};
-	int Next[9];
+/**
+* sort array. put sorted element's indexes to "indexes" array
+* @param array needed to sort array
+* @param array size
+* @param indexes where sorted element's indexes should be placed
+* @param indexes_size array size
+*/
+void sort(int *array, int array_size, int *indexes, int indexes_size) {
+	int *result = new int[2];
 
-	for (int i = 0; i < 9; i++)
-	{
-		std::cout << "i = " << i << " is " << Age[i] << std::endl;
+	for (int i = 0; i < array_size; i++) {
+		min(array, array_size, indexes, indexes_size, result);
+		//printArray(result, 2);
+		add(indexes, indexes_size, result[0]);
 	}
-	
-	int Minimum = Age[0];
-	int Minimum_index = 0;
-	for (int i = 0; i < 9; i++)
-	{
-		if (Age[i] < Minimum)
-		{
-			Minimum = Age[i];
-			Minimum_index = i;
+}
+
+/**
+* checks if index already exists in indexes array
+* @param indexes where index may be
+* @param size indexes array size
+* @param index to find
+* @return true if index found in indexes array
+*/
+bool exists(int *indexes, int size, int index) {
+	for (int i = 0; i < size; i++) {
+		if (index == indexes[i]) {
+			return true;
 		}
 	}
-	std::cout << "Minimum value: " << Minimum << ", index : " << Minimum_index << std::endl;
-	Next[0] = Minimum_index;
-	// -> gdzieœ st¹d for
-	int AlfaInterval = Age[1] - Minimum;
-	int BetaInterval = 0;
-	int NextValue = 0;
-	for (int i = 1; i < 9; i++)
-	{
-		if (((Age[i] - Minimum) < AlfaInterval) && ((Age[i] - Minimum) > 0))
-		{
-			BetaInterval = Age[i];
-		}
-		else
-		{
-			BetaInterval = AlfaInterval;
-		}
-	}
-	NextValue = BetaInterval + Minimum;
-	std::cout << "NextValue: " << NextValue << std::endl;
+	return false;
+}
 
-	int NextValueIndex = 0;
-	for (int i = 1; i < 9; i++)
-	{
-		if (Age[i] == NextValue)
-		{
-			NextValueIndex = i;
+/**
+* add index to indexes array
+* @param indexes where we have to put new index
+* @param size indexes array size
+* @param index to put in index array
+*/
+void add(int *indexes, int size, int index) {
+	for (int i = 0; i < size; i++) {
+		if (indexes[i] == INDEX_DEF_VAL) {
+			indexes[i] = index;
+			return;
 		}
 	}
-	std::cout << "Next: " << NextValue << ", NextIndex: " << NextValueIndex << std::endl;
-	Next[Minimum_index] = NextValueIndex;
-	std::cout << "Next[0]: " << Next[0] << ", Next[Minimum_index]: " << Next[Minimum_index] << std::endl;
-	/*
-	Next[1] = NextValueIndex;
+}
 
+/**
+* find minimum.
+* @param array for searching minimum value(number)
+* @param indexes exceptions - new found minimum (actually its index)
+* shouldn't be in this index array
+* @param out array of 2 elements:
+* first: index
+* second: value
+* */
+void min(int *array, int array_size, int *indexes, int indexes_size, int *out) {
+	int index = 0;
+	int value = array[index];
 
-	for (int i = 0; i < 9; i++)
-	{
-
-		std::cout << "The Next[" << i << "] keeps Age[] index no. " << Next[i] << ", value is " << Age[Next[i]] << std::endl;
+	for (int i = 0; i < array_size; i++) {
+		if (value > array[i] && !exists(indexes, indexes_size, i)) {
+			value = array[i];
+			index = i;
+		}
 	}
-	*/
+	out[0] = index;
+	out[1] = value;
+}
+
+/**
+* print array
+* @param arrayPtr which should be printed
+* @param size array size
+*/
+void printArray(int *arrayPtr, int size) {
+	printf("printing array: %p with size: %d\n", arrayPtr, size);
+	for (int i = 0; i < size; i++) {
+		printf("i[%d]: %d\n", i, arrayPtr[i]);
+	}
 }
