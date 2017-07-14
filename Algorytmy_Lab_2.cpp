@@ -11,7 +11,7 @@ int main()
 	sortArrayByInsertionSorting();
 
 	_getch();
-    return 0;
+	return 0;
 }
 
 void sortArrayByGnomeSorting()
@@ -31,19 +31,20 @@ void sortArrayByGnomeSorting()
 		std::cout << "Given array - " << i << " = " << tab[i] << std::endl;
 	}
 
-	for (int runs = 0; runs < elementsSum; runs++)
+	int indexToStart = 0;
+	while (indexToStart < elementsSum - 1)
 	{
-
-		for (int i = 0; i < elementsSum - 1; i++)
+		if (tab[indexToStart] > tab[indexToStart + 1])
 		{
-			if (tab[i] > tab[i + 1])
-			{
-				temp = tab[i];
-				tab[i] = tab[i + 1];
-				tab[i + 1] = temp;
-				temp = 0;
-			}
+			temp = tab[indexToStart];
+			tab[indexToStart] = tab[indexToStart + 1];
+			tab[indexToStart + 1] = temp;
+			indexToStart = 0;
 		}
+		else
+		{
+			indexToStart++;
+		}	
 	}
 
 	for (int i = 0; i < elementsSum; i++)
@@ -55,7 +56,7 @@ void sortArrayByGnomeSorting()
 void sortArrayByInsertionSorting()
 {
 	constexpr int elementsSum = 14;
-	int tab[elementsSum] = {5342, 426554, 54, 5213, 6, 4, 2, 65, 652, 53, 2222, 14, 594302, 54830};
+	int tab[elementsSum] = { 5342, 426554, 54, 5213, 6, 4, 2, 65, 652, 53, 2222, 14, 594302, 54830 };
 	int temp = 0;
 
 	for (int i = 0; i < elementsSum; i++)
@@ -75,7 +76,6 @@ void sortArrayByInsertionSorting()
 			}
 		}
 	}
-
 
 	for (int i = 0; i < elementsSum; i++)
 	{

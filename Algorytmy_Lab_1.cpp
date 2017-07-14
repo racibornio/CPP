@@ -7,11 +7,14 @@ typedef unsigned long ulong;
 
 uint fibonacci(uint wartosc);
 void WyliczSilnieIteracyjnie(uint limit);
+int WyliczSilnieRekursywnienie(uint limit);
 
 int main(int argc, char** argv)
 {
-	//fibonacci(10);
-	WyliczSilnieIteracyjnie(12);
+	WyliczSilnieIteracyjnie(1);
+	WyliczSilnieIteracyjnie(1);
+	WyliczSilnieRekursywnienie(1);
+
 	cout << endl << "Wcisnij dowolny klawisz...";
 	_getch();
 	return 0;
@@ -64,6 +67,16 @@ void WyliczSilnieIteracyjnie(uint limit)
 			iloczyn_posredni *= odlicznik;
 		};
 		result = iloczyn_posredni;
-		cout << result;
 	}
+	cout << "Silnia dla " << limit << " wynosi " << result << endl;
+}
+
+int WyliczSilnieRekursywnienie(uint limit)
+{
+	if (limit == 1)
+	{
+		return 1;
+	}
+	int value = limit * WyliczSilnieRekursywnienie(limit - 1);
+	return value;
 }

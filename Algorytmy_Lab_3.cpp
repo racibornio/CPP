@@ -7,8 +7,11 @@ void findPattern();
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	//findOccurences();
+	
+	findOccurences();
 	findPattern();
+
+	std::cout << "Press any key...";
 	_getch();
 	return 0;
 }
@@ -35,7 +38,7 @@ void findOccurences()
 void findPattern()
 {
 	char firstLetter, secondLetter, thirdLetter;
-	
+
 	std::cout << "Give first letter...";
 	std::cin >> firstLetter;
 	std::cout << "Give second letter...";
@@ -44,7 +47,7 @@ void findPattern()
 	std::cin >> thirdLetter;
 
 	char sourceArray[15] = { 'd', 'e', 'e', 'h', 'a', 'j', 'y', 'r', 'y', 'n', 'l', 'w', 'q', 'd', 'x' };
-	
+
 	for (int i = 0; i < 13; i++)
 	{
 		if (sourceArray[i] == firstLetter)
